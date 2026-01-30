@@ -37,18 +37,16 @@ class _HomeScreenState extends State<HomeScreen> {
       final double overlayOpacity = enabled
           ? (pressed ? 0.22 : 0.12)
           : (pressed ? 0.55 : 0.48);
-      final Color overlayColor = Colors.black.withOpacity(overlayOpacity);
-      final Color effectiveForeground =
-          enabled ? foreground : foreground.withOpacity(0.6);
+      final Color overlayColor = Colors.black.withValues(alpha: overlayOpacity);
+      final Color effectiveForeground = enabled
+          ? foreground
+          : foreground.withValues(alpha: 0.6);
 
       return Container(
         decoration: BoxDecoration(
           border: showDivider
               ? Border(
-                  bottom: BorderSide(
-                    color: Colors.grey.shade400,
-                    width: 1,
-                  ),
+                  bottom: BorderSide(color: Colors.grey.shade400, width: 1),
                 )
               : null,
         ),
